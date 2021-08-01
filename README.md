@@ -790,9 +790,11 @@ After `0.9.4`, the `Chunked` transfer encoding is disabled by default due to som
 RNFetchBlob.fetch('POST', 'http://example.com/upload', { 'Transfer-Encoding' : 'Chunked' }, bodyData)
 ```
 
-### Self-Signed SSL Server
+### Self-Signed SSL Server [iOS Only]
 
-By default, rn-fetch-blob does NOT allow connection to unknown certification provider since it's dangerous. To connect a server with self-signed certification, you need to add `trusty` to `config` explicitly. This function is available for version >= `0.5.3`
+By default, rn-fetch-blob does NOT allow connection to unknown certification provider since it's dangerous. To connect a server with self-signed certification, you need to add `trusty` to `config` explicitly. 
+This function is disabled for Android since it's not allowed by Google Play policies to have an unsafe implementation of TrustManager
+This function is available for version >= `0.5.3`
 
 ```js
 RNFetchBlob.config({
